@@ -346,11 +346,7 @@ class ListParameter(Parameter):
             if self.units is not None and value.endswith(" " + self.units):
                 value = value[:-len(self.units)].strip()
 
-        if self._choices is not None and value in self._choices:
-            self._value = value
-        else:
-            raise ValueError("Invalid choice for parameter. "
-                             "Must be one of %s" % str(self._choices))
+        self._value = value
 
     @property
     def choices(self):
